@@ -14,17 +14,24 @@
     "@emotion/styled": "^11",
     "@types/mapbox-gl": "^2.7.2",
     "@types/react-map-gl": "^6.1.2",
+    "firebase": "^9.8.2",
     "framer-motion": "^6",
+    "i18next": "^21.8.5",
+    "i18next-browser-languagedetector": "^6.1.4",
     "mapbox-gl": "^2.8.2",
     "next": "12.1.6",
     "react": "18.1.0",
     "react-dom": "18.1.0",
-    "react-map-gl": "^7.0.15"
+    "react-i18next": "^11.16.9",
+    "react-map-gl": "^7.0.15",
+    "styled-components": "^5.3.5"
   },
   "devDependencies": {
     "@types/node": "17.0.36",
     "@types/react": "18.0.9",
     "@types/react-dom": "18.0.5",
+    "@types/styled-components": "^5.1.25",
+    "babel-plugin-styled-components": "^2.0.7",
     "eslint": "8.16.0",
     "eslint-config-next": "12.1.6",
     "typescript": "4.7.2"
