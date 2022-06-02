@@ -1,6 +1,6 @@
-import { useRef } from "react";
-import { Marker as MarkerMB } from "react-map-gl";
-import { Icon, IconArea } from "./style";
+import { useRef, useState} from "react";
+import { CarCallout } from "./CarCallout";
+import { Icon, IconArea, MarkerMB } from "./style";
 
 interface Coordinate {
     latitude: number;
@@ -13,19 +13,20 @@ interface Coordinate {
   }
 
   export const CarMarker = function ({coordinate, plate}: MarkerProps) {
-    //const markerRef = useRef<MarkerMB>();
+    const [showCallout, setShowCallout] = useState<boolean>(false);
   
     return (
       <MarkerMB 
         latitude={coordinate?.latitude} 
-        longitude={coordinate?.longitude} 
-        //ref={markerRef}
+        longitude={coordinate?.longitude}
         >
-        <IconArea>
+        <IconArea
+          onClick={() => setShowCallout(!showCallout)}
+        >
           <Icon size={35} src={'/assets/car.png'} />
           <Icon size={10} src={'/assets/triangle.png'} />
         </IconArea>
-        {/* <CarCallout plate={plate} markerRef={markerRef} /> */}
+        <CarCallout plate={plate} showCallout={showCallout}/>
       </MarkerMB>
     );
   };

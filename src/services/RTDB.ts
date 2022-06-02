@@ -13,5 +13,6 @@ const database = getDatabase(app);
 const carsReference = ref(database, 'cars');
 
 export const RTDB = {
+  database,
   carsReference,
 };
