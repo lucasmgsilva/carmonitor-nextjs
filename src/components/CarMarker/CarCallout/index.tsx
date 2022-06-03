@@ -27,10 +27,10 @@ export function CarCallout({plate, showCallout}: CarCalloutProps) {
 
   return (
     !!showCallout && (
-      <CarCalloutContainer onClick={handleClick}>
+      <CarCalloutContainer>
         <CarCalloutArea>
           <CarCalloutText>{plate}</CarCalloutText>
-          <CarCalloutButton>
+          <CarCalloutButton onClick={handleClick}>
             <CarCalloutText>
               {playAlarmSound
                 ? t('alarm.cancel').toUpperCase()

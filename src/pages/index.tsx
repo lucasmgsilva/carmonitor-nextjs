@@ -7,9 +7,10 @@ import { onValue } from 'firebase/database';
 import { CarMarker } from '../components/CarMarker';
 import { CarAreaSlider } from '../components/CarAreaSlider';
 import { CarItem } from '../components/CarItem';
-import { Box } from '@chakra-ui/react';
+import { Box, Flex } from '@chakra-ui/react';
 import Head from 'next/head';
 import { Menu } from '../components/Menu';
+import { TailSpin } from 'react-loading-icons';
 
 const API_TOKEN = 'pk.eyJ1IjoibHVjYXNtZ3NpbHZhIiwiYSI6ImNreHF0aGVidDRlaGQybm80OWg2dzVoeXQifQ.exF-UiLvicFXXWKMkn4Kfg';
 
@@ -72,7 +73,7 @@ const Home: NextPage = () => {
       center: [location.lng, location.lat], 
       zoom, 
       speed: 0.75, 
-      curve: 2, 
+      curve: 1, 
       essential: true})
   }
 
@@ -82,47 +83,54 @@ const Home: NextPage = () => {
         <title>CarMonitor</title>
       </Head>
 
-      <Box maxWidth={1120} width="100%" mx="auto" px="3">
-      <Menu/>
-      {
-        !!region && (
-          <Map
-            mapboxAccessToken={API_TOKEN}
-            initialViewState={region}
-            /* style={{flex: 1}} */
-            style={{
-              minHeight: 720,
-              borderRadius: 5
-            }}
-            mapStyle='mapbox://styles/mapbox/streets-v11'
-            ref={mapRef}
-            scrollZoom={false}
-            doubleClickZoom={false}
-          >
-          {cars?.map((car, index) => (
-            <CarMarker
-              key={index}
-              coordinate={{
-                latitude: car?.location?.lat,
-                longitude: car?.location?.lng,
+      <Box maxWidth={1120} width="100%" mx="auto" px="5" pb="10">
+        <Menu/>
+        {
+          !region && (
+            <Flex justify="center" mt="20">
+              <TailSpin width="100" height="100"/>
+            </Flex>
+          )
+        }
+
+        {
+          !!region && (
+            <Map
+              mapboxAccessToken={API_TOKEN}
+              initialViewState={region}
+              style={{
+                minHeight: "75vh",
+                borderRadius: 5
               }}
-              plate={car?.id}
-            />
-            ))}
-        </Map>
-        )
-      }
-        <CarAreaSlider>
-          {cars?.map((car, index) => (
-            <CarItem
-              key={index}
-              plate={car?.id}
-              speed={car.location.speed}
-              onPress={() => handleCarItemClick(car?.location)}
-            />
-            ))
-          }
-        </CarAreaSlider>
+              mapStyle='mapbox://styles/mapbox/streets-v11'
+              ref={mapRef}
+              scrollZoom={false}
+              doubleClickZoom={false}
+            >
+            {cars?.map((car, index) => (
+              <CarMarker
+                key={index}
+                coordinate={{
+                  latitude: car?.location?.lat,
+                  longitude: car?.location?.lng,
+                }}
+                plate={car?.id}
+              />
+              ))}
+          </Map>
+          )
+        }
+          <CarAreaSlider>
+            {cars?.map((car, index) => (
+              <CarItem
+                key={index}
+                plate={car?.id}
+                speed={car.location.speed}
+                onPress={() => handleCarItemClick(car?.location)}
+              />
+              ))
+            }
+          </CarAreaSlider>
       </Box>
     </>
   )

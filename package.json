@@ -23,6 +23,7 @@
     "react": "18.1.0",
     "react-dom": "18.1.0",
     "react-i18next": "^11.16.9",
+    "react-loading-icons": "^1.1.0",
     "react-map-gl": "^7.0.15",
     "styled-components": "^5.3.5"
   },

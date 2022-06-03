@@ -1,25 +1,32 @@
 import { Box, Flex, ListItem, UnorderedList } from "@chakra-ui/react";
 import { t } from "i18next";
+import Link from "next/link";
 
 export function Menu(){
     return (
         <Box>
-            <UnorderedList  display="flex" justifyContent="center" height="100%">
+            <UnorderedList display="flex" flexDir={["column", "row"]} justifyContent="center" ml="0">
                 <ListItem 
-                    p="4"
+                    p={["3", "6"]}
                     listStyleType="none"
                     fontWeight="bold"
                     color="white"
+                    textAlign="center"
                 >
-                    {t('menu.home').toUpperCase()}
+                    <Link href="/">
+                        {t('menu.home').toUpperCase()}
+                    </Link>
                 </ListItem>
                 <ListItem 
-                    p="4"
+                    p={["3", "6"]}
                     listStyleType="none"
                     fontWeight="bold"
                     color="white"
+                    textAlign="center"
                 >
-                    {t('menu.about').toUpperCase()}
+                    <Link href="/about">
+                        {t('menu.about').toUpperCase()}
+                    </Link>
                 </ListItem>
             </UnorderedList>
         </Box>

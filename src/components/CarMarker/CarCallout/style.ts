@@ -9,7 +9,6 @@ export const CarCalloutContainer = styled.div`
   position: absolute;
   bottom: 50px;
   right: -107.5px;
-  
 `;
 
 export const CarCalloutArea = styled.div`
