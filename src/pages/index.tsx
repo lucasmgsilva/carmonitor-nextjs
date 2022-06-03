@@ -99,7 +99,7 @@ const Home: NextPage = () => {
               mapboxAccessToken={API_TOKEN}
               initialViewState={region}
               style={{
-                minHeight: "75vh",
+                minHeight: "70vh",
                 borderRadius: 5
               }}
               mapStyle='mapbox://styles/mapbox/streets-v11'
