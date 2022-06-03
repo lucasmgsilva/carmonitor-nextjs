@@ -23,5 +23,9 @@ export default {
       buttons: {
         turnBack: 'Turn Back',
       },
+      menu: {
+        home: 'Home',
+        about: 'About',
+      }
     }
   }

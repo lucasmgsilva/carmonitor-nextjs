@@ -7,13 +7,9 @@ export const CarItemContainer = styled.div`
   justify-content: center;
   align-items: center;
   border-radius: 5px;
-  
-  width: 10rem;
-  
-  margin-left: 5px;
-  margin-right: 5px;
-  padding: 5px;
+  padding: 1rem;
   cursor: pointer;
+  margin-top: 0.5rem;
 `;
 
 export const CarItemRow = styled.p`

@@ -9,6 +9,7 @@ import { CarAreaSlider } from '../components/CarAreaSlider';
 import { CarItem } from '../components/CarItem';
 import { Box } from '@chakra-ui/react';
 import Head from 'next/head';
+import { Menu } from '../components/Menu';
 
 const API_TOKEN = 'pk.eyJ1IjoibHVjYXNtZ3NpbHZhIiwiYSI6ImNreHF0aGVidDRlaGQybm80OWg2dzVoeXQifQ.exF-UiLvicFXXWKMkn4Kfg';
 
@@ -81,13 +82,18 @@ const Home: NextPage = () => {
         <title>CarMonitor</title>
       </Head>
 
-      <Box h={'70vh'}>
+      <Box maxWidth={1120} width="100%" mx="auto" px="3">
+      <Menu/>
       {
         !!region && (
           <Map
             mapboxAccessToken={API_TOKEN}
             initialViewState={region}
-            style={{flex: 1}}
+            /* style={{flex: 1}} */
+            style={{
+              minHeight: 720,
+              borderRadius: 5
+            }}
             mapStyle='mapbox://styles/mapbox/streets-v11'
             ref={mapRef}
             scrollZoom={false}

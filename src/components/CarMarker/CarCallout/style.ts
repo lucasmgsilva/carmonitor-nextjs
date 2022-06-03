@@ -23,6 +23,7 @@ export const CarCalloutText = styled.p`
   font-weight: bold;
   color: white;
   text-align: center;
+  font-size: 0.85rem;
 `;
 
 export const CarCalloutButton = styled.button.attrs({
