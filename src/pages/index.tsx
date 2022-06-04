@@ -105,6 +105,7 @@ const Home: NextPage = () => {
               mapStyle='mapbox://styles/mapbox/streets-v11'
               ref={mapRef}
               scrollZoom={false}
+              touchZoomRotate={false}
               doubleClickZoom={false}
             >
             {cars?.map((car, index) => (
